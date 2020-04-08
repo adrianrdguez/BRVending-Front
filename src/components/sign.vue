@@ -68,6 +68,7 @@ export default {
       APIServices.signup(newUser)
         .then(response => {
           localStorage.setItem("token", response.token);
+          localStorage.setItem("email", response.email);
           this.$router.push("/home");
         })
         .catch(err => console.log(err));

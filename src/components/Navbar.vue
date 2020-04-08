@@ -3,7 +3,6 @@
     <v-toolbar dense>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-toolbar-title>BRVending</v-toolbar-title>
-      <router-link to="/">Home</router-link>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>

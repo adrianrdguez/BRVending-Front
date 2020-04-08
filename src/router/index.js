@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Auth from "../views/Auth.vue";
 import Clients from "../views/ShowClients.vue";
+import ShowClient from "../views/ShowClient.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes = [
     path: "/clients",
     name: "Clients",
     component: Clients
+  },
+  {
+    path: "/clients/:client",
+    name: "Clients",
+    component: ShowClient
   }
 ];
 

@@ -11,11 +11,10 @@ export default {
   name: "home",
   data() {
     return {
-      client: "",
       icons: [
         {
           to: "/clients",
-          name: "Clients",
+          name: "clients",
           src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
           srcset:
             "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"

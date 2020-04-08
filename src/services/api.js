@@ -22,12 +22,11 @@ export default {
     return response.data;
   },
   async getOneClient(client) {
-    const response = await API.post(`/clients/${client}`);
+    const response = await API.get(`/me/clients/${client}`);
     return response.data;
   },
   async getAllClients() {
     const response = await API.get("/me/clients");
-    console.log("entro");
     return response.data;
   }
 };
