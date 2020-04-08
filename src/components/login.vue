@@ -8,7 +8,7 @@
         <v-form>
           <v-text-field
             label="Email"
-            v-model="username"
+            v-model="email"
             prepend-icon="mdi-account-circle"
           ></v-text-field>
 
@@ -36,7 +36,7 @@ import APIServices from "../services/api.js";
 export default {
   data() {
     return {
-      username: "",
+      email: "",
       showPassword: false,
       userPassword: "",
       passwordRule: [
@@ -48,7 +48,7 @@ export default {
   methods: {
     loginMethod() {
       const user = {
-        email: this.username,
+        email: this.email,
         password: this.userPassword
       };
       APIServices.login(user)

@@ -44,14 +44,14 @@ export default {
   data() {
     return {
       showPassword: false,
-      userPassword: "Chiken123456",
+      userPassword: "",
       passwordRule: [
         v => !!v || "Password is required",
         v => v.length >= 10 || "Password must be more than 10 characters"
       ],
-      username: "Chiken",
+      username: "",
       userRules: [v => !!v || "Username is required"],
-      email: "a@a.com",
+      email: "",
       emailRules: [
         v => !!v || "E-mail is required",
         v => /.+@.+\..+/.test(v) || "E-mail must be valid"

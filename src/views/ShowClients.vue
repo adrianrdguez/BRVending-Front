@@ -13,7 +13,7 @@ export default {
     };
   },
   mounted() {
-    ApiService.getAllClients().then(clients => (this.clients = clients));
+    ApiService.getAllClients().then(clients => console.log(clients));
   }
 };
 </script>
