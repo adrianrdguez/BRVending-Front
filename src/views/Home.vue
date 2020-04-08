@@ -1,40 +1,39 @@
 <template>
-  <v-card color="grey lighten-4" flat tile>
-    <v-toolbar dense>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Reboot Academy App</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon @click="logout">
-        <v-icon>mdi-exit-to-app</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
-    </v-toolbar>
-  </v-card>
+  <div>
+    <router-link v-for="(icon, i) in icons" :key="i" :to="icon.to">
+      <HomeButton :data="icon" />
+    </router-link>
+  </div>
 </template>
-
 <script>
+import HomeButton from "../components/HomeButton.vue";
 export default {
-  name: "Home",
-  components: {},
-  methods: {
-    logout() {
-      localStorage.clear();
-      this.$router.push("/");
-    }
+  name: "home",
+  data() {
+    return {
+      client: "",
+      icons: [
+        {
+          to: "/clients",
+          name: "Clients",
+          src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
+          srcset:
+            "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"
+        },
+        {
+          to: "/clients",
+          name: "Clients",
+          src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
+          srcset:
+            "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"
+        }
+      ]
+    };
+  },
+  components: {
+    HomeButton
   }
 };
 </script>
+
+<style lang="stylus" scoped></style>

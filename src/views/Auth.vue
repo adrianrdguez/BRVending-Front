@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col cols="6">
-        <h1 id="title">Welcome to Reboot Academy Vue App</h1>
+        <h1 id="title">BRVending</h1>
       </v-col>
     </v-row>
     <v-row>

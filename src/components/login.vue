@@ -7,7 +7,7 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            label="Username"
+            label="Email"
             v-model="username"
             prepend-icon="mdi-account-circle"
           ></v-text-field>
@@ -48,11 +48,12 @@ export default {
   methods: {
     loginMethod() {
       const user = {
-        name: this.username,
+        email: this.username,
         password: this.userPassword
       };
       APIServices.login(user)
         .then(response => {
+          console.log(response);
           localStorage.setItem("token", response.token);
           this.$router.push("/home");
         })
