@@ -65,7 +65,6 @@ export default {
         email: this.email,
         password: this.userPassword
       };
-
       APIServices.signup(newUser)
         .then(response => {
           localStorage.setItem("token", response.token);

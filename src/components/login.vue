@@ -7,7 +7,7 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            label="Email"
+            :label="errormsg"
             v-model="email"
             prepend-icon="mdi-account-circle"
           ></v-text-field>
@@ -36,6 +36,9 @@ import APIServices from "../services/api.js";
 export default {
   data() {
     return {
+      errormsg: "Email",
+      isActive: true,
+      hasError: false,
       email: "",
       showPassword: false,
       userPassword: "",
@@ -53,9 +56,12 @@ export default {
       };
       APIServices.login(user)
         .then(response => {
-          console.log(response);
-          localStorage.setItem("token", response.token);
-          this.$router.push("/home");
+          if (!response.token) {
+            this.errormsg = "Usuario Incorrecto";
+          } else {
+            localStorage.setItem("token", response.token);
+            this.$router.push("/home");
+          }
         })
         .catch(err => console.log(err));
     }

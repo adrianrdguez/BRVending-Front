@@ -22,10 +22,11 @@ export default {
         },
         {
           to: "/clients",
-          name: "Clients",
-          src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
+          name: "Ventas",
+          src:
+            "https://cdn.jim-nielsen.com/ios/512/job-estimate-invoice-maker-2019-07-22.png",
           srcset:
-            "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"
+            "https://cdn.jim-nielsen.com/ios/1024/job-estimate-invoice-maker-2019-07-22.png 2x"
         }
       ]
     };
