@@ -13,7 +13,7 @@ export default {
     return {
       icons: [
         {
-          to: "/clients",
+          to: "/ventas",
           name: "Ventas",
           src:
             "https://cdn.jim-nielsen.com/ios/512/job-estimate-invoice-maker-2019-07-22.png",

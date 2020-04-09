@@ -16,8 +16,15 @@ export default {
   components: {
     ClientShow
   },
+  methods: {
+    async getClients() {
+      await ApiService.getAllClients().then(
+        clients => (this.clients = clients)
+      );
+    }
+  },
   mounted() {
-    ApiService.getAllClients().then(clients => (this.clients = clients));
+    this.getClients();
   }
 };
 </script>

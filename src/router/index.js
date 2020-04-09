@@ -4,6 +4,8 @@ import Home from "../views/Home.vue";
 import Auth from "../views/Auth.vue";
 import Clients from "../views/ShowClients.vue";
 import ShowClient from "../views/ShowClient.vue";
+import Ventas from "../views/Ventas.vue";
+import Products from "../views/ShowProducts.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,16 @@ const routes = [
     path: "/clients",
     name: "Clients",
     component: Clients
+  },
+  {
+    path: "/ventas",
+    name: "Ventas",
+    component: Ventas
+  },
+  {
+    path: "/ShowProducts",
+    name: "ShowProducts",
+    component: Products
   },
   {
     path: "/clients/:client",

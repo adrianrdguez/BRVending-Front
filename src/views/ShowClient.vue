@@ -1,6 +1,6 @@
 <template>
   <v-row class="d-flex justify-center">
-    <v-card class="bold mt-2 col-6">
+    <v-card class="bold mt-2 col-11">
       <div class="mt-5">
         <p>
           Numero de cliente: <br />
@@ -91,7 +91,6 @@ export default {
 <style scoped>
 p {
   font-weight: 600;
-  margin-botton: 10px;
 }
 div {
   font-weight: 300;

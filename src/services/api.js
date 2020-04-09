@@ -28,5 +28,10 @@ export default {
   async getAllClients() {
     const response = await API.get("/me/clients");
     return response.data;
+  },
+  async getAllProducts() {
+    const response = await API.get("/me/products");
+    console.log(response.data);
+    return response.data;
   }
 };

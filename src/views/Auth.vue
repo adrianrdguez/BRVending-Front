@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Login from "../components/login.vue";
-import Signup from "../components/sign.vue";
+import Login from "../components/Login.vue";
+import Signup from "../components/Sign.vue";
 
 export default {
   components: {
