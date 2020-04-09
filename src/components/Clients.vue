@@ -1,16 +1,17 @@
 <template>
-  <v-container>
-    <v-card>
-      <v-card-text>
-        <div>{{ client.shop_name }}</div>
-        <div class="text--primary">
-          Numero de Cliente: {{ client.client_number }}
+  <v-card class="mt-2">
+    <router-link :to="`/clients/${client._id}`">
+      <v-card-text id="card">
+        <div class="text-primary d-flex align-start flex-column mb-6">
+          {{ client.shop_name }}
         </div>
-        <div class="d-flex justify-end">{{ client.zipcode }}</div>
-        <router-link :to="`/clients/${client._id}`">LINK</router-link>
+        <div class="d-flex align-start">{{ client.client_number }}</div>
+        <div class="d-flex align-end flex-column">
+          {{ client.zipcode }} {{ client.address }}
+        </div>
       </v-card-text>
-    </v-card>
-  </v-container>
+    </router-link>
+  </v-card>
 </template>
 
 <script>
@@ -21,4 +22,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+#card {
+  font-size: 25px;
+}
+</style>

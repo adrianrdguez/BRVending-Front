@@ -1,22 +1,18 @@
 <template>
   <div>
-    <v-toolbar dense>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>BRVending</v-toolbar-title>
+    <v-app-bar color="grey darken-3" dark>
+      <v-toolbar-title id="title"
+        >BR
+        <span class="icon-title"
+          ><v-icon class="icon" size="70px">mdi-alpha-v-box</v-icon></span
+        >
+        ending</v-toolbar-title
+      >
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
       <v-btn icon @click="logout">
         <v-icon>mdi-exit-to-app</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
@@ -31,3 +27,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#title {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+}
+.icon {
+  margin-bottom: 6px;
+  margin-left: -17px;
+  margin-right: -18px;
+}
+</style>

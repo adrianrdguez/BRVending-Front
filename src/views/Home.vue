@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex justify-space-around">
     <router-link v-for="(icon, i) in icons" :key="i" :to="icon.to">
       <HomeButton :data="icon" />
     </router-link>
@@ -14,18 +14,18 @@ export default {
       icons: [
         {
           to: "/clients",
-          name: "clients",
-          src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
-          srcset:
-            "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"
-        },
-        {
-          to: "/clients",
           name: "Ventas",
           src:
             "https://cdn.jim-nielsen.com/ios/512/job-estimate-invoice-maker-2019-07-22.png",
           srcset:
             "https://cdn.jim-nielsen.com/ios/1024/job-estimate-invoice-maker-2019-07-22.png 2x"
+        },
+        {
+          to: "/clients",
+          name: "Clients",
+          src: "https://cdn.jim-nielsen.com/ios/512/cardhop-2019-04-16.png",
+          srcset:
+            "https://cdn.jim-nielsen.com/ios/1024/cardhop-2019-04-16.png 2x"
         }
       ]
     };

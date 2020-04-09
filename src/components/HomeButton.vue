@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-10">
     <span class="icon-wrapper" data-date="2019-04-16">
       <img
         alt="Cardhop app icon"
@@ -8,9 +8,9 @@
         height="128"
         :src="data.src"
         :srcset="data.srcset"
-      />
-      {{ data.name }}
-    </span>
+      /> </span
+    ><br />
+    <p class="name">{{ data.name }}</p>
   </div>
 </template>
 
@@ -22,4 +22,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.name {
+  font-size: 50px;
+  font-weight: 600;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.icon {
+  border-radius: 20px;
+}
+</style>

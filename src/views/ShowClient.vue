@@ -1,5 +1,71 @@
 <template>
-  <div>{{ client }}</div>
+  <v-row class="d-flex justify-center">
+    <v-card class="bold mt-2 col-6">
+      <div class="mt-5">
+        <p>
+          Numero de cliente: <br />
+          <v-divider></v-divider>
+        </p>
+        {{ client.client_number }}
+      </div>
+      <div class="mt-5">
+        <p>
+          Cliente:
+          <v-divider></v-divider>
+        </p>
+        {{ client.shop_name }}
+        <div class="mt-5">
+          <p>
+            Razon Social: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.business_name }}
+        </div>
+        <div class="mt-5">
+          <p>
+            DNI: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.VATIN }}
+        </div>
+        <div class="mt-5">
+          <p>
+            Email: <br />
+            <v-divider v></v-divider>
+          </p>
+          {{ client.email }}
+        </div>
+        <div class="mt-5">
+          <p>
+            Horario: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.opening_hours }}
+        </div>
+        <div class="mt-5">
+          <p>
+            Codigo Postal: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.zipcode }}
+        </div>
+        <div class="mt-5">
+          <p>
+            Teléfono: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.mobile }}
+        </div>
+        <div class="mt-5">
+          <p>
+            Persona a cargo: <br />
+            <v-divider></v-divider>
+          </p>
+          {{ client.business_manager }}
+        </div>
+      </div>
+    </v-card>
+  </v-row>
 </template>
 
 <script>
@@ -22,4 +88,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+p {
+  font-weight: 600;
+  margin-botton: 10px;
+}
+div {
+  font-weight: 300;
+}
+</style>

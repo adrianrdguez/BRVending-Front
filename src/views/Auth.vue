@@ -1,11 +1,6 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">
-        <h1 id="title">BRVending</h1>
-      </v-col>
-    </v-row>
-    <v-row>
       <v-col cols="3">
         <Login />
       </v-col>
