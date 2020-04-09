@@ -1,7 +1,7 @@
 <template>
   <v-card max-width="344" class="products mx-auto">
     <v-list-item>
-      <v-icon color="grey" size="60px">mdi-alpha-v-box</v-icon>
+      <v-icon class="mr-5" color="grey" size="60px">mdi-alpha-v-box</v-icon>
       <v-list-item-content>
         <v-list-item-title class="headline">
           {{ product.name }}
@@ -49,10 +49,12 @@ export default {
   },
   methods: {
     sumProduct() {
+      this.$emit("addtocart", this.product);
       this.$emit("changeTotalPrice", this.product.price);
       return this.units++;
     },
     subtracProduct() {
+      this.$emit("deleteProduct");
       this.$emit("substractTotalPrice", this.product.price);
       return this.units--;
     },

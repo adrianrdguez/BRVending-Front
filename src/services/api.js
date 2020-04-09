@@ -31,7 +31,12 @@ export default {
   },
   async getAllProducts() {
     const response = await API.get("/me/products");
-    console.log(response.data);
+    return response.data;
+  },
+  async createOneOrder(order) {
+    const response = await API.post("/me/orders", {
+      ...order
+    });
     return response.data;
   }
 };

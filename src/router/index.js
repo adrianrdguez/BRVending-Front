@@ -6,6 +6,8 @@ import Clients from "../views/ShowClients.vue";
 import ShowClient from "../views/ShowClient.vue";
 import Ventas from "../views/Ventas.vue";
 import Products from "../views/ShowProducts.vue";
+import ShowOrder from "../views/ShowOrder.vue";
+import OrderList from "../views/ShowOrderList.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +41,16 @@ const routes = [
     path: "/clients/:client",
     name: "Clients",
     component: ShowClient
+  },
+  {
+    path: "/orders",
+    name: "ShowOrderList",
+    component: OrderList
+  },
+  {
+    path: "/orders/:orderId",
+    name: "Order",
+    component: ShowOrder
   }
 ];
 

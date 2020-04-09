@@ -9,7 +9,7 @@
         {{ client.zipcode }} {{ client.address }}
       </div>
       <div class="d-flex justify-center">
-        <router-link to="/ShowProducts">Iniciar Venta</router-link>
+        <router-link to="/ShowProducts"> Iniciar Venta </router-link>
       </div>
     </v-card-text>
   </v-card>
@@ -17,9 +17,13 @@
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   props: {
     client: Object
-  }
+  },
+  methods: {}
 };
 </script>
 

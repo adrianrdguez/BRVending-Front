@@ -1,6 +1,15 @@
 <template>
   <v-col>
-    <v-card class="total" height="40px">TOTAL: {{ total }} €</v-card>
+    <div>
+      <v-card class="total" height="40px"
+        >TOTAL: {{ total }} €
+        <router-link to="/orders">
+          <v-icon class="icon" x-large color="blue accent-4" right
+            >mdi-cart</v-icon
+          ></router-link
+        >
+      </v-card>
+    </div>
     <v-container class="d-flex">
       <ProductsList
         v-for="(item, i) in producList"
@@ -8,8 +17,11 @@
         :product="item"
         v-on:changeTotalPrice="changeTotalPrice"
         v-on:substractTotalPrice="substractTotalPrice"
+        v-on:addtocart="addtocart"
+        v-on:deleteProduct="deleteProduct"
       />
     </v-container>
+    {{ productsPurchased }}
   </v-col>
 </template>
 
@@ -20,7 +32,9 @@ export default {
   data() {
     return {
       total: 0,
-      producList: []
+      id: "",
+      producList: [],
+      productsPurchased: []
     };
   },
   components: {
@@ -37,6 +51,20 @@ export default {
     },
     substractTotalPrice(newPrice) {
       this.total -= newPrice;
+    },
+    addtocart(productToAdd) {
+      this.productsPurchased.push(productToAdd);
+    },
+    createOrder() {
+      const order = {
+        client: this.id,
+        products: this.productsPurchased
+      };
+      ApiService.createOneOrder(order);
+      this.$router.push("/orders").catch(err => console.log(err));
+    },
+    deleteProduct() {
+      this.productsPurchased.shift();
     }
   },
   mounted() {
@@ -46,7 +74,14 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 .total {
   font-size: 30px;
+}
+.icon {
+  margin-bottom: 15px;
 }
 </style>
