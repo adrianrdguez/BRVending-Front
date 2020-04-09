@@ -18,7 +18,7 @@
         v-on:changeTotalPrice="changeTotalPrice"
         v-on:substractTotalPrice="substractTotalPrice"
         v-on:addtocart="addtocart"
-        v-on:deleteProduct="deleteProduct"
+        v-on:removeToCart="removeToCart"
       />
     </v-container>
     {{ productsPurchased }}
@@ -55,16 +55,21 @@ export default {
     addtocart(productToAdd) {
       this.productsPurchased.push(productToAdd);
     },
+    removeToCart(productToRemove) {
+      const productIdx = this.productsPurchased.findIndex(
+        i => i._id === productToRemove._id
+      );
+      if (productIdx != -1) {
+        this.productsPurchased.splice(productIdx, 1);
+      }
+    },
     createOrder() {
       const order = {
-        client: this.id,
+        client: this.$route.params.clientId,
         products: this.productsPurchased
       };
       ApiService.createOneOrder(order);
       this.$router.push("/orders").catch(err => console.log(err));
-    },
-    deleteProduct() {
-      this.productsPurchased.shift();
     }
   },
   mounted() {

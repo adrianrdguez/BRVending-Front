@@ -54,9 +54,11 @@ export default {
       return this.units++;
     },
     subtracProduct() {
-      this.$emit("deleteProduct");
-      this.$emit("substractTotalPrice", this.product.price);
-      return this.units--;
+      if (this.units > 0) {
+        this.$emit("changeTotalPrice", -this.product.price);
+        this.$emit("removeToCart", this.product);
+        return this.units--;
+      }
     },
     total() {
       return (this.suma = this.units * this.product.price);
