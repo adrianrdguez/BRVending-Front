@@ -46,14 +46,7 @@ export default {
   components: {
     Order
   },
-  computed: {
-    total() {
-      return this.products.length;
-    },
-    totalPrice() {
-      return this.products.reduce((a, i) => a + i.price, 0);
-    }
-  },
+  computed: {},
   methods: {
     async getOrders() {
       await ApiService.getAllOrders().then(orders => (this.orders = orders));

@@ -19,9 +19,16 @@
 export default {
   data() {
     return {
-      products: [],
-      productsPurchased: []
+      products: []
     };
+  },
+  computed: {
+    totalPrice() {
+      return this.orderProp[0].clients[0].products[0].price.reduce(
+        (a, i) => a + i.price,
+        0
+      );
+    }
   },
   props: {
     orderProp: Object
