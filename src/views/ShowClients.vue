@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <v-breadcrumbs :items="items" large></v-breadcrumbs>
+
     <ClientShow v-for="(clients, i) in clients" :key="i" :client="clients" />
   </v-container>
 </template>
@@ -10,7 +12,18 @@ import ClientShow from "../components/Clients";
 export default {
   data() {
     return {
-      clients: []
+      clients: [],
+      items: [
+        {
+          text: "HOME",
+          disabled: false,
+          href: "/home"
+        },
+        {
+          text: "CLIENTES",
+          disabled: true
+        }
+      ]
     };
   },
   components: {

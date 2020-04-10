@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-breadcrumbs :items="items" large></v-breadcrumbs>
-    <v-col v-for="(order, i) in ordersArray" :key="i">
+    <v-col v-for="(order, id) in ordersArray" :key="id">
       <Order :clients="order.clients" :products="order.products" />
       <v-divider></v-divider>
     </v-col>

@@ -1,10 +1,10 @@
 <template>
   <v-row>
     <v-col>
-      <h1 v-for="client in clients" :key="client.client_number">
+      <h1 v-for="(client, idx) in clients" :key="idx">
         {{ client.client_number }} | {{ client.business_name }}
       </h1>
-      <v-card v-for="product in products" :key="product._id">
+      <v-card v-for="(product, i) in products" :key="i">
         {{ product.name }} - {{ product.price }}€
       </v-card>
       <v-card>TOTAL = {{ total }}€</v-card>
