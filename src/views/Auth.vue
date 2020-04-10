@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="basil">
+    <v-card color="orange darken-4">
       <v-card-title class="text-center justify-center py-6">
         <h1 class="font-weight-bold display-3 basil--text">BRVending</h1>
       </v-card-title>
@@ -44,17 +44,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 .card {
   margin: auto;
 }
 .basil {
-  background-color: rgb(219, 94, 10) !important;
+  background-color: rgba(230, 107, 25, 0.808) !important;
 }
 .basil--text {
   color: #ffffff !important;
 }
 .tabnames {
-  height: 900px;
+  height: 100vh;
   background-image: url("../assets/background1.png");
 }
 </style>

@@ -35,12 +35,10 @@ export default {
   },
   async getAllOrders() {
     const response = await API.get("/me/orders");
-    console.log(response);
     return response.data;
   },
-  async getOrderById(orderId) {
-    const response = await API.get(`/me/orders/${orderId}`);
-    console.log(response);
+  async getOrderById(order) {
+    const response = await API.get(`/me/orders/${order}`);
     return response.data;
   },
   async createOneOrder(order) {
