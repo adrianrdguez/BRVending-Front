@@ -4,10 +4,9 @@ import Home from "../views/Home.vue";
 import Auth from "../views/Auth.vue";
 import Clients from "../views/ShowClients.vue";
 import ShowClient from "../views/ShowClient.vue";
-import Ventas from "../views/Ventas.vue";
+import VentasClients from "../views/VentasClients.vue";
 import Products from "../views/ShowProducts.vue";
 import ShowOrder from "../views/ShowOrder.vue";
-import OrderList from "../views/ShowOrderList.vue";
 
 Vue.use(VueRouter);
 
@@ -20,37 +19,81 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: Home
+    component: Home,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   },
   {
     path: "/clients",
     name: "Clients",
-    component: Clients
+    component: Clients,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   },
   {
     path: "/ventas",
-    name: "Ventas",
-    component: Ventas
+    name: "VentasClients",
+    component: VentasClients,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   },
   {
     path: "/ShowProducts/:clientId",
     name: "ShowProducts",
-    component: Products
+    component: Products,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   },
   {
     path: "/clients/:client",
     name: "Clients",
-    component: ShowClient
-  },
-  {
-    path: "/orders",
-    name: "ShowOrderList",
-    component: OrderList
+    component: ShowClient,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   },
   {
     path: "/orders/:orderId",
-    name: "Order",
-    component: ShowOrder
+    name: "Orders",
+    component: ShowOrder,
+    props: true,
+    beforeEnter(to, from, next) {
+      if (!localStorage.getItem("token")) {
+        next({
+          name: "Auth"
+        });
+      }
+      next();
+    }
   }
 ];
 
@@ -59,5 +102,4 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-
 export default router;

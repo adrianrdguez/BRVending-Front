@@ -4,7 +4,12 @@
       <v-card class="total" height="40px"
         >TOTAL: {{ total }} €
         <router-link to="/orders">
-          <v-icon class="icon" x-large color="blue accent-4" right
+          <v-icon
+            @click:="createOrder"
+            class="icon"
+            x-large
+            color="blue accent-4"
+            right
             >mdi-cart</v-icon
           ></router-link
         >
@@ -21,7 +26,6 @@
         v-on:removeToCart="removeToCart"
       />
     </v-container>
-    {{ productsPurchased }}
   </v-col>
 </template>
 
@@ -29,6 +33,7 @@
 import ApiService from "../services/api.js";
 import ProductsList from "../components/Products.vue";
 export default {
+  name: "Products",
   data() {
     return {
       total: 0,
@@ -63,13 +68,16 @@ export default {
         this.productsPurchased.splice(productIdx, 1);
       }
     },
+    pushOrders() {
+      return this.$root.$emit("products", this.productsPurchased);
+    },
     createOrder() {
       const order = {
         client: this.$route.params.clientId,
         products: this.productsPurchased
       };
+      console.log(order);
       ApiService.createOneOrder(order);
-      this.$router.push("/orders").catch(err => console.log(err));
     }
   },
   mounted() {

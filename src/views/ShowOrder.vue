@@ -1,15 +1,19 @@
 <template>
   <div>
-    HOLA SOY UN ORDER
-    <Order />
+    <Order v-on:products="products" />
   </div>
 </template>
 
 <script>
-import Order from "../components/Order.vue";
+import Order from "../components/Orders.vue";
 
 export default {
   name: "Order",
+  data() {
+    return {
+      productsPurchased: []
+    };
+  },
   props: {
     products: Array
   },
@@ -25,8 +29,8 @@ export default {
     }
   },
   methods: {
-    clear() {
-      this.$emit("clearCart");
+    pushOrders() {
+      return this.$root.$emit("products", this.productsPurchased);
     }
   }
 };
