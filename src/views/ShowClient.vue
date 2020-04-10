@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-breadcrumbs :items="items" large></v-breadcrumbs>
-
     <v-row class="d-flex justify-center">
       <v-card class="bold mt-2 col-11">
         <div class="mt-5">

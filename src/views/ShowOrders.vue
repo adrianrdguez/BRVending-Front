@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-breadcrumbs :items="items" large></v-breadcrumbs>
-    <v-col v-for="(order, i) in orders" :key="i">
-      <Order :orderProp="orders" />
+    <v-col v-for="(order, i) in ordersArray" :key="i">
+      <Order :clients="order.clients" :products="order.products" />
       <v-divider></v-divider>
     </v-col>
   </div>
@@ -16,7 +16,7 @@ export default {
   name: "Orders",
   data() {
     return {
-      orders: [],
+      ordersArray: [],
       items: [
         {
           text: "HOME",
@@ -40,20 +40,12 @@ export default {
       ]
     };
   },
-  props: {
-    products: Array
-  },
   components: {
     Order
   },
-  computed: {},
-  methods: {
-    async getOrders() {
-      await ApiService.getAllOrders().then(orders => (this.orders = orders));
-    }
-  },
-  mounted() {
-    this.getOrders();
+  async created() {
+    let response = await ApiService.getAllOrders();
+    this.ordersArray = response;
   }
 };
 </script>

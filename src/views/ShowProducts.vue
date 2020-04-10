@@ -86,10 +86,7 @@ export default {
         clients: this.$route.params.clientId,
         products: this.productsPurchased
       };
-      console.log(order);
-      ApiService.createOneOrder(order).then(data => {
-        console.log(data);
-      });
+      ApiService.createOneOrder(order);
     }
   },
   async created() {

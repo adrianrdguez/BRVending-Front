@@ -1,37 +1,31 @@
 <template>
   <v-row>
     <v-col>
-      <h1>
-        {{ orderProp[0].clients[0].client_number }}
-        {{ orderProp[0].clients[0].shop_name }}
+      <h1 v-for="client in clients" :key="client.client_number">
+        {{ client.client_number }} | {{ client.business_name }}
       </h1>
+      <v-card v-for="product in products" :key="product._id">
+        {{ product.name }} - {{ product.price }}€
+      </v-card>
+      <v-card>TOTAL = {{ total }}€</v-card>
+
       <v-divider></v-divider>
-      <ul v-for="(product, i) in orderProp[0].products" :key="i">
-        <li>
-          {{ product.name }}
-        </li>
-      </ul>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      products: []
-    };
+  props: {
+    clients: Array,
+    products: Array
   },
   computed: {
-    totalPrice() {
-      return this.orderProp[0].clients[0].products[0].price.reduce(
-        (a, i) => a + i.price,
-        0
-      );
+    total: function() {
+      return this.products.reduce((curr, p) => {
+        return curr + p.price;
+      }, 0);
     }
-  },
-  props: {
-    orderProp: Object
   }
 };
 </script>
