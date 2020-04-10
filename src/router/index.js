@@ -6,7 +6,8 @@ import Clients from "../views/ShowClients.vue";
 import ShowClient from "../views/ShowClient.vue";
 import VentasClients from "../views/VentasClients.vue";
 import Products from "../views/ShowProducts.vue";
-import ShowOrder from "../views/ShowOrder.vue";
+import ShowOrders from "../views/ShowOrders.vue";
+// import ShowOrder from "../views/ShowOrder.vue";
 
 Vue.use(VueRouter);
 
@@ -31,7 +32,7 @@ const routes = [
   },
   {
     path: "/clients",
-    name: "Clients",
+    name: "ClientsInfo",
     component: Clients,
     beforeEnter(to, from, next) {
       if (!localStorage.getItem("token")) {
@@ -82,10 +83,9 @@ const routes = [
     }
   },
   {
-    path: "/orders/:orderId",
-    name: "Orders",
-    component: ShowOrder,
-    props: true,
+    path: "/ShowOrders",
+    name: "ShowOrders",
+    component: ShowOrders,
     beforeEnter(to, from, next) {
       if (!localStorage.getItem("token")) {
         next({
@@ -95,6 +95,20 @@ const routes = [
       next();
     }
   }
+  // {
+  //   path: "/orders/orderId",
+  //   name: "Orders",
+  //   component: ShowOrder,
+  //   props: true,
+  //   beforeEnter(to, from, next) {
+  //     if (!localStorage.getItem("token")) {
+  //       next({
+  //         name: "Auth"
+  //       });
+  //     }
+  //     next();
+  //   }
+  // }
 ];
 
 const router = new VueRouter({

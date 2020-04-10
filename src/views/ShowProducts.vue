@@ -1,37 +1,34 @@
 <template>
-  <v-col>
-    <div>
-      <v-card class="total" height="40px"
-        >TOTAL: {{ total }} €
-        <router-link to="/orders">
-          <v-icon
-            @click:="createOrder"
-            class="icon"
-            x-large
-            color="blue accent-4"
-            right
-            >mdi-cart</v-icon
-          ></router-link
-        >
-      </v-card>
-    </div>
-    <v-container class="d-flex">
-      <ProductsList
-        v-for="(item, i) in producList"
-        :key="i"
-        :product="item"
-        v-on:changeTotalPrice="changeTotalPrice"
-        v-on:substractTotalPrice="substractTotalPrice"
-        v-on:addtocart="addtocart"
-        v-on:removeToCart="removeToCart"
-      />
-    </v-container>
-  </v-col>
+  <div>
+    <v-breadcrumbs :items="items" large></v-breadcrumbs>
+    <v-icon
+      @click="createOrder()"
+      class="icon"
+      x-large
+      color="blue accent-4"
+      right
+      >mdi-cart</v-icon
+    >
+
+    <h2 class="my-5 text-right">TOTAL: {{ total }} €</h2>
+
+    <v-row>
+      <v-col v-for="(item, i) in producList" :key="i" cols="4">
+        <Product
+          :product="item"
+          v-on:changeTotalPrice="changeTotalPrice"
+          v-on:substractTotalPrice="substractTotalPrice"
+          v-on:addtocart="addtocart"
+          v-on:removeToCart="removeToCart"
+        />
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
 import ApiService from "../services/api.js";
-import ProductsList from "../components/Products.vue";
+import Product from "../components/Products.vue";
 export default {
   name: "Products",
   data() {
@@ -39,18 +36,34 @@ export default {
       total: 0,
       id: "",
       producList: [],
-      productsPurchased: []
+      productsPurchased: [],
+      items: [
+        {
+          text: "HOME",
+          disabled: false,
+          href: "/home"
+        },
+        {
+          text: "CIENTES",
+          disabled: false,
+          href: "/ventas"
+        },
+        {
+          text: "PRODUCTS",
+          disabled: true
+        },
+        {
+          text: "PEDIDOS",
+          disabled: false,
+          href: "/ShowOrders"
+        }
+      ]
     };
   },
   components: {
-    ProductsList
+    Product
   },
   methods: {
-    async getProducts() {
-      await ApiService.getAllProducts().then(
-        response => (this.producList = response)
-      );
-    },
     changeTotalPrice(newPrice) {
       this.total += newPrice;
     },
@@ -68,20 +81,20 @@ export default {
         this.productsPurchased.splice(productIdx, 1);
       }
     },
-    pushOrders() {
-      return this.$root.$emit("products", this.productsPurchased);
-    },
     createOrder() {
       const order = {
-        client: this.$route.params.clientId,
+        clients: this.$route.params.clientId,
         products: this.productsPurchased
       };
       console.log(order);
-      ApiService.createOneOrder(order);
+      ApiService.createOneOrder(order).then(data => {
+        console.log(data);
+      });
     }
   },
-  mounted() {
-    this.getProducts();
+  async created() {
+    let response = await ApiService.getAllProducts();
+    this.producList = response;
   }
 };
 </script>

@@ -33,10 +33,18 @@ export default {
     const response = await API.get("/me/products");
     return response.data;
   },
+  async getAllOrders() {
+    const response = await API.get("/me/orders");
+    console.log(response);
+    return response.data;
+  },
+  async getOrderById(orderId) {
+    const response = await API.get(`/me/orders/${orderId}`);
+    console.log(response);
+    return response.data;
+  },
   async createOneOrder(order) {
-    const response = await API.post("/me/orders", {
-      ...order
-    });
+    const response = await API.post("/me/orders", order);
     return response.data;
   }
 };

@@ -2,7 +2,9 @@
   <div id="app" class="container">
     <v-app id="inspire">
       <Navbar />
-      <router-view />
+      <v-content>
+        <router-view />
+      </v-content>
     </v-app>
   </div>
 </template>

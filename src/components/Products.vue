@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="344" class="products mx-auto">
+  <v-card class="products">
     <v-list-item>
       <v-icon class="mr-5" color="grey" size="60px">mdi-alpha-v-box</v-icon>
       <v-list-item-content>
@@ -14,18 +14,18 @@
     </v-list-item>
 
     <v-img :src="product.photo_url" height="194"></v-img>
+
     <v-card-actions>
       <v-btn icon>
-        <v-icon @click="subtracProduct()" color="blue" large
+        <v-icon @click="subtracProduct()" color="blue" large v-show="units > 0"
           >mdi-minus-circle-outline</v-icon
         >
       </v-btn>
-      <v-btn text color="deep-purple accent-4">
-        <p>{{ product.stock }} in stock</p>
-      </v-btn>
-      <v-btn text color="deep-purple">
-        <p>{{ units }} units</p>
-      </v-btn>
+      <v-spacer></v-spacer>
+      <p class="mt-4">
+        {{ product.stock }} in stock<br />
+        {{ units }} units
+      </p>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon @click="sumProduct()" color="blue" large
@@ -74,6 +74,5 @@ export default {
 }
 p {
   font-size: 15px;
-  margin-top: 5px;
 }
 </style>

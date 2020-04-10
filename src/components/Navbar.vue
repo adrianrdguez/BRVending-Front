@@ -1,16 +1,16 @@
 <template>
   <div>
-    <v-app-bar height="120px" color="grey darken-3" dark>
-      <v-toolbar-title class="mb-5" id="title"
+    <v-app-bar app height="120px" color="orange darken-4" dark>
+      <v-toolbar-title id="title"
         >BR
         <span class="icon-title"
-          ><v-icon class="icon" size="70px">mdi-alpha-v-box</v-icon></span
+          ><v-icon class="icon" size="60px">mdi-alpha-v-box</v-icon></span
         >
         ending</v-toolbar-title
       >
       <v-spacer></v-spacer>
       <v-btn icon @click="logout">
-        <v-icon class="icon-title" size="80px">mdi-exit-to-app</v-icon>
+        <v-icon size="50px" class="mr-4">mdi-exit-to-app</v-icon>
       </v-btn>
     </v-app-bar>
   </div>
@@ -32,15 +32,10 @@ export default {
 #title {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 90px;
-}
-.icon {
-  margin-bottom: 6px;
-  margin-left: -17px;
-  margin-right: -18px;
+  font-size: 50px;
+  line-height: 120px;
 }
 .icon-title {
-  right: 20px;
-  margin-top: 10px;
+  margin: 0 -10px;
 }
 </style>

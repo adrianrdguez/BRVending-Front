@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <v-breadcrumbs :items="items" large></v-breadcrumbs>
+
     <Ventas v-for="(clients, i) in clients" :key="i" :client="clients" />
   </v-container>
 </template>
@@ -10,7 +12,18 @@ import Ventas from "../components/Ventas.vue";
 export default {
   data() {
     return {
-      clients: []
+      clients: [],
+      items: [
+        {
+          text: "HOME",
+          disabled: false,
+          href: "/home"
+        },
+        {
+          text: "CLIENTES",
+          disabled: true
+        }
+      ]
     };
   },
   components: {
@@ -21,5 +34,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

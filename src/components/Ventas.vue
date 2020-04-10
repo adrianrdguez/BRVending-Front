@@ -1,5 +1,9 @@
 <template>
-  <v-card class="mt-2">
+  <v-card
+    class="mt-4"
+    color="orange lighten-4"
+    :to="{ name: 'ShowProducts', params: { clientId: client._id } }"
+  >
     <v-card-text id="card">
       <div class="text-primary d-flex align-start flex-column mb-6">
         {{ client.shop_name }}
@@ -8,13 +12,7 @@
       <div class="d-flex align-end flex-column">
         {{ client.zipcode }} {{ client.address }}
       </div>
-      <div class="d-flex justify-center">
-        <router-link
-          :to="{ name: 'ShowProducts', params: { clientId: client._id } }"
-        >
-          Iniciar Venta
-        </router-link>
-      </div>
+      <div class="d-flex justify-center"></div>
     </v-card-text>
   </v-card>
 </template>
