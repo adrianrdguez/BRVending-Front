@@ -1,18 +1,19 @@
 <template>
   <div>
-    <v-card width="400px" class="ml-5 mt-5 mx-a">
-      <v-card-title class="pb-0">
+    <v-card width="400px" height="390px" class="card">
+      <v-card-title class="pb-0 mb-10">
         <h1>Login</h1>
       </v-card-title>
       <v-card-text>
-        <v-form>
+        <v-form class="mb-10">
           <v-text-field
+            class="mb-10"
             :label="errormsg"
             v-model="email"
             prepend-icon="mdi-account-circle"
           ></v-text-field>
-
           <v-text-field
+            class="mb-10"
             label="Password"
             v-model="userPassword"
             :type="showPassword ? 'text' : 'password'"
@@ -25,7 +26,9 @@
       </v-card-text>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="info" @click="loginMethod">Login</v-btn>
+        <v-btn class="loginbut" color="orange" x-large @click="loginMethod"
+          >Login</v-btn
+        >
       </v-card-actions>
     </v-card>
   </div>
@@ -69,3 +72,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.card {
+  margin: auto;
+  margin-top: 20%;
+}
+
+.loginbut {
+  text-align: center;
+}
+</style>

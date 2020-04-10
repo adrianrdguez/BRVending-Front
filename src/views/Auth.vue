@@ -1,13 +1,27 @@
 <template>
   <div>
-    <v-row>
-      <v-col cols="3">
-        <Login />
-      </v-col>
-      <v-col cols="3">
-        <Signup />
-      </v-col>
-    </v-row>
+    <v-card color="basil">
+      <v-card-title class="text-center justify-center py-6">
+        <h1 class="font-weight-bold display-3 basil--text">BRVending</h1>
+      </v-card-title>
+      <v-tabs v-model="tab" background-color="transparent" color="basil" grow>
+        <v-tab v-for="item in items" :key="item">{{ item }}</v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab">
+        <v-tab-item class="tabnames">
+          <v-col class="card">
+            <Login />
+          </v-col>
+          <v-card color="basil" flat></v-card>
+        </v-tab-item>
+        <v-tab-item class="tabnames">
+          <v-col class="card">
+            <Signup />
+          </v-col>
+          <v-card color="basil" flat></v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
   </div>
 </template>
 
@@ -16,9 +30,31 @@ import Login from "../components/Login.vue";
 import Signup from "../components/Sign.vue";
 
 export default {
+  data() {
+    return {
+      tab: null,
+      items: ["Login", "Sign Up"]
+    };
+  },
   components: {
     Login,
     Signup
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.card {
+  margin: auto;
+}
+.basil {
+  background-color: rgb(219, 94, 10) !important;
+}
+.basil--text {
+  color: #ffffff !important;
+}
+.tabnames {
+  height: 900px;
+  background-image: url("../assets/background1.png");
+}
+</style>
