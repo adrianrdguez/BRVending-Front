@@ -1,13 +1,13 @@
 <template>
   <div>
     <v-app-bar app height="120px" color="orange darken-4" dark>
-      <v-toolbar-title id="title"
-        >BR
-        <span class="icon-title"
-          ><v-icon class="icon" size="80px">mdi-alpha-v-box</v-icon></span
-        >
-        ending</v-toolbar-title
-      >
+      <v-toolbar-title id="title">
+        BR
+        <span class="icon-title">
+          <v-icon class="icon" size="80px">mdi-alpha-v-box</v-icon>
+        </span>
+        ending
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click="logout">
         <v-icon size="60px" class="mr-4">mdi-exit-to-app</v-icon>
